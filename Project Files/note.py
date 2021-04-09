@@ -10,12 +10,12 @@ if os.path.exists(q):
 
     if y == "help":
         print("")
-        print("Commands")
         print("- New (Creates Note)")
         print("- Read (Prints Out Note Text Into Command Line)")
         print("- Append (Adds To The End Of A Note)")
         print("- Edit (Open Note In Notepad For Editing)")
         print("- Delete (Delete Note)")
+        print("- List (List All Notes)")
 
     elif y == "new":
         print("")
@@ -81,6 +81,14 @@ if os.path.exists(q):
         deleteinput = input("Which File Would You Like To Delete? ")
         deletepath = q + deleteinput + ".txt"
         os.remove(deletepath)
+
+    elif y == "list":
+        print("")
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.lower().endswith('.txt'):
+                   print ("- " + file.rsplit( ".", 1 )[ 0 ])
+
     print("")
     input("Press Any Key To Exit")
 else:
