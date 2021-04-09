@@ -9,6 +9,7 @@ if os.path.exists(q):
     y = x.lower()
 
     if y == "help":
+        print("")
         print("Commands")
         print("- New (Creates Note)")
         print("- Read (Prints Out Note Text Into Command Line)")
@@ -17,8 +18,8 @@ if os.path.exists(q):
         print("- Delete (Delete Note)")
 
     elif y == "new":
-        print("Name of File:")
-        z = input()
+        print("")
+        z = input("Name of File: ")
         print("Creating A New File...")
         f = open(q + z + ".txt", "w+")
         print("Write your note:")
@@ -27,53 +28,60 @@ if os.path.exists(q):
         f.close()
 
     elif y == "read":
+        print("")
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print (file)
-        print("Which Note?")
-        b = input()
+                    print ("- " + file)
+        print("")
+        b = input("Which Note? ")
+        print("")
         g = open(q + b + ".txt", "r")
         contents = g.read()
         print(contents)
 
     elif y == "append":
+        print("")
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print (file)
+                    print ("- " + file)
 
-        print("which file would you like to edit?")
-        c = input()
+        print("")
+        c = input("Which File Would You Like To Edit? ")
         h = open(q + c + ".txt", "r")
         contents2 = h.read()
+        print("")
         print(contents2)
         h.close()
-        print("What would you like to append")
+        print("")
         j = open(q + c + ".txt", "a")
-        d = input()
+        d = input("What Would You Like To Append ")
         j.write(" " + d)
         j.close()
 
     elif y == "edit":
+        print("")
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print (file)
-        print("Which File Would You Like To Edit?")
-        e = input()
+                    print ("- " + file)
+        print("")
+        e = input("Which File Would You Like To Edit? ")
         f = q + e + ".txt"
         os.system('notepad.exe' + " " + f)
 
     elif y == "delete":
+        print("")
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print (file)
-        print("Which File Would You Like To Delete")
-        deleteinput = input()
+                    print ("- " + file)
+        print("")
+        deleteinput = input("Which File Would You Like To Delete? ")
         deletepath = q + deleteinput + ".txt"
         os.remove(deletepath)
+    print("")
     input("Press Any Key To Exit")
 else:
     os.mkdir(path)
