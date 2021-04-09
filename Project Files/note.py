@@ -32,7 +32,7 @@ if os.path.exists(q):
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print ("- " + file)
+                    print ("- " + file.rsplit( ".", 1 )[ 0 ])
         print("")
         b = input("Which Note? ")
         print("")
@@ -45,7 +45,7 @@ if os.path.exists(q):
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print ("- " + file)
+                   print ("- " + file.rsplit( ".", 1 )[ 0 ])
 
         print("")
         c = input("Which File Would You Like To Edit? ")
@@ -65,7 +65,7 @@ if os.path.exists(q):
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print ("- " + file)
+                   print ("- " + file.rsplit( ".", 1 )[ 0 ])
         print("")
         e = input("Which File Would You Like To Edit? ")
         f = q + e + ".txt"
@@ -76,7 +76,7 @@ if os.path.exists(q):
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.lower().endswith('.txt'):
-                    print ("- " + file)
+                   print ("- " + file.rsplit( ".", 1 )[ 0 ])
         print("")
         deleteinput = input("Which File Would You Like To Delete? ")
         deletepath = q + deleteinput + ".txt"
